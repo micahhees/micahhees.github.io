@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Micah Hees","url":"https://micahhees.com","affiliation":{"@type":"CollegeOrUniversity","name":"University of Wisconsin–Madison"},"knowsAbout":["AI safety","Animal welfare","Community organizing"],"sameAs":["https://www.linkedin.com/in/micahhees","https://substack.com/@micahhees"]}
+{"@context":"https://schema.org","@type":"Person","name":"Micah Hees","url":"https://micahhees.com","affiliation":{"@type":"CollegeOrUniversity","name":"University of Wisconsin–Madison"},"knowsAbout":["AI safety","Animal welfare","Community organizing"],"sameAs":["https://www.linkedin.com/in/micahhees","https://substack.com/@micahhees","https://www.instagram.com/micah_hees/","https://www.goodreads.com/micahhees"]}
 </script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -90,7 +90,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em;line-h
 .page-head{padding:3.4rem 0 1rem}
 .page-title{font-size:clamp(2.1rem,5.5vw,3.3rem);margin-bottom:.6rem}
 .lede{font-size:1.16rem;color:var(--muted);max-width:54ch}
-section.block{padding:2.9rem 0}
+section.block{padding:2.1rem 0}
 section.block + section.block{border-top:1px solid var(--line)}
 section.block > h2{font-size:1.55rem;margin-bottom:1.2rem}
 p.body{max-width:60ch;margin-bottom:1rem}
@@ -99,7 +99,7 @@ a.link{color:var(--ink);text-decoration:underline;text-decoration-color:var(--li
 a.link:hover{color:var(--accent);filter:drop-shadow(0 0 4px rgba(52,197,255,.6))}
 
 /* hero */
-.hero{position:relative;padding:3.2rem 0 1rem;display:flex;gap:2.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.hero{position:relative;padding:2.4rem 0 .8rem;display:flex;gap:2.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .hero-constellation{position:absolute;right:-4%;top:50%;transform:translateY(-50%);width:min(560px,92%);max-width:560px;opacity:.55;pointer-events:none;z-index:0}
 .hero-text{flex:1 1 360px;min-width:0;position:relative;z-index:2}
 .hero-name{font-family:var(--display);font-size:clamp(2.8rem,9vw,5rem);line-height:.96;letter-spacing:-.025em;font-weight:600}
@@ -204,9 +204,13 @@ a.link:hover{color:var(--accent);filter:drop-shadow(0 0 4px rgba(52,197,255,.6))
 .photo-slot.has-img{display:block;padding:0;overflow:hidden;border-style:solid}
 .photo-slot img{width:100%;height:100%;object-fit:cover;display:block}
 
-footer.site{padding:2.2rem 0;border-top:1px solid var(--line);font-family:var(--hand);font-weight:500;font-size:.85rem;color:var(--muted);text-align:center}
+footer.site{padding:1.8rem 0;border-top:1px solid var(--line);font-family:var(--hand);font-weight:500;font-size:.85rem;color:var(--muted);text-align:center}
 footer.site a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
 footer.site a:hover{color:var(--accent);border-color:var(--accent)}
+.social-row{display:flex;align-items:center;justify-content:center;gap:1.1rem;margin-top:.7rem}
+.social-row a{color:var(--muted);border-bottom:none!important;display:inline-flex;transition:color .2s,transform .2s}
+.social-row a:hover{color:var(--accent);transform:translateY(-1px)}
+.social-row svg{width:19px;height:19px;display:block}
 
 @media(max-width:640px){
   body{font-size:17px}
@@ -239,10 +243,10 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
   <section class="hero">
     <div class="hero-text">
       <h1 class="hero-name">Micah<br><em>Hees</em></h1>
-      <p class="hero-sub">UW&ndash;Madison &middot; AI safety &middot; animal welfare &middot; community organizing</p>
-      <p class="hero-bio">Hi, I&rsquo;m Micah, a <span class="hl">chill dude who cares a lot about AI safety, animal welfare, and U.S. politics.</span> I grew up in Middleton, just outside Madison, Wisconsin.</p>
-      <p class="hero-bio">I&rsquo;m currently at UW&ndash;Madison studying econ, spending this summer in Berkeley doing AI safety work and job-hunting in the space.</p>
-      <p class="hero-bio">Outside of that, I spend a lot of time climbing, running, and reading.</p>
+      <p class="hero-sub">UW&ndash;Madison &middot; AI safety &middot; community organizing &middot; Doing Good Better</p>
+      <p class="hero-bio">Hi, I&rsquo;m Micah, a <span class="hl">chill dude who cares a lot about AI safety, U.S. politics, and generally improving the world.</span> I grew up in Middleton, just outside Madison, Wisconsin.</p>
+      <p class="hero-bio">I&rsquo;m currently at UW&ndash;Madison studying econ, spending this summer in Berkeley doing various AI safety work.</p>
+      <p class="hero-bio">Outside of that, I spend time climbing, running, and reading.</p>
       <div class="cta-row">
         <a class="btn primary" href="https://calendly.com/micahhees" target="_blank" rel="noopener">Book a chat</a>
         <a class="btn" href="mailto:micahhees@gmail.com">Email</a>
@@ -264,8 +268,8 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
     <h2>What&rsquo;s taking up my brain</h2>
     <div class="idx">
       <div class="idx-row"><div class="idx-k">Focus</div><div class="idx-v"><h3>AI safety fieldbuilding</h3><p>Figuring out how to grow the pipeline of people working on AI safety, especially the non-technical folks who can organize, communicate, and hold a community together.</p></div></div>
-      <div class="idx-row"><div class="idx-k">School</div><div class="idx-v"><h3>UW&ndash;Madison, econ</h3><p>Switched from accounting to econ to move through school faster and free up time for the work that matters more. Aiming to graduate early.</p></div></div>
-      <div class="idx-row"><div class="idx-k">Reading</div><div class="idx-v"><h3>Building real context</h3><p>AI safety programs through BlueDot and CEA, the 80k podcast, and a lot of conversations where I try to get my own views wrong out loud.</p></div></div>
+      <div class="idx-row"><div class="idx-k">School</div><div class="idx-v"><h3>UW&ndash;Madison, econ</h3><p>Switched from accounting to econ to move through school a little faster and focus on the things that are important to me, such as helping other people.</p></div></div>
+      <div class="idx-row"><div class="idx-k">Reading</div><div class="idx-v"><h3>Building AI safety context</h3><p>AI safety programs through BlueDot and CEA, the 80k podcast, tons of Substack, and fun conversations with people in the AI safety field.</p></div></div>
     </div>
     <p class="body" style="margin-top:1.4rem"><a class="link" href="now.html">See the fuller version &amp; recent updates &rarr;</a></p>
   </section>
@@ -273,20 +277,24 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
   <section class="block">
     <h2>I&rsquo;ve really been enjoying</h2>
     <ul class="note-list">
-      <li><b>Climbing</b>: V3&ndash;V4, five or six sessions in and making it a habit.</li>
-      <li><b>Running</b>: most days, no real plan, just going.</li>
+      <li><b>Climbing</b>: currently working on V3&ndash;V4&rsquo;s, a few weeks into climbing.</li>
+      <li><b>Running</b>: morning runs every other day with friends, trying to get 4&ndash;6 miles each time.</li>
       <li><b>Reading Substack</b>: <a class="link" href="https://sandcastlesblog.substack.com/" target="_blank" rel="noopener">Sandcastles</a>, <a class="link" href="https://www.astralcodexten.com/" target="_blank" rel="noopener">Astral Codex Ten</a>, and <a class="link" href="https://benthams.substack.com/" target="_blank" rel="noopener">Bentham&rsquo;s Bulldog</a>.</li>
     </ul>
-    <div class="callout" style="margin-top:1.6rem">
-      <h3>Currently recommending</h3>
-      <p><i>Flowers for Algernon</i> by Daniel Keyes, and <i>Sword of Kaigen</i> by M.L. Wang.</p>
-      <p style="margin-bottom:0">I track everything I read on <a class="link" href="https://www.goodreads.com/micahhees" target="_blank" rel="noopener">Goodreads</a>, which is the best place to see what&rsquo;s currently in rotation.</p>
-    </div>
   </section>
 </div>
 </main>
 <footer class="site">
-  <div class="wrap">Micah Hees &middot; <a href="mailto:micahhees@gmail.com">micahhees@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/micahhees" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://substack.com/@micahhees" target="_blank" rel="noopener">Substack</a> &middot; <a href="https://www.instagram.com/micah_hees/" target="_blank" rel="noopener">Instagram</a></div>
+  <div class="wrap">
+    Micah Hees &middot; micahhees@gmail.com
+    <div class="social-row">
+      <a href="mailto:micahhees@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+      <a href="https://www.linkedin.com/in/micahhees" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8" cy="8.3" r="1.3"/><rect x="6.8" y="10.8" width="2.4" height="7"/><path d="M12.4 10.8h2.3v1.3c.5-.9 1.6-1.5 2.8-1.5 2.3 0 3.4 1.4 3.4 4.2v4h-2.4v-3.6c0-1.3-.5-2.1-1.6-2.1-1 0-1.6.7-1.9 1.4-.1.3-.1.6-.1 1v3.3h-2.5v-7.4z"/></svg></a>
+      <a href="https://substack.com/@micahhees" target="_blank" rel="noopener" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="2.6" rx="1"/><rect x="4" y="10.7" width="16" height="2.6" rx="1"/><rect x="4" y="17.4" width="10" height="2.6" rx="1"/></svg></a>
+      <a href="https://www.goodreads.com/micahhees" target="_blank" rel="noopener" aria-label="Goodreads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.2c-1.6-1.3-3.7-2-6.2-2v13.6c2.5 0 4.6.7 6.2 2 1.6-1.3 3.7-2 6.2-2V4.2c-2.5 0-4.6.7-6.2 2z"/><path d="M12 6.2v13.6"/></svg></a>
+      <a href="https://www.instagram.com/micah_hees/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
 </footer>
 <script>
 /* ---- theme switcher (Neon / Daylight) ---- */
