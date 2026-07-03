@@ -110,11 +110,11 @@ a.link:hover{color:var(--accent);filter:drop-shadow(0 0 4px rgba(52,197,255,.6))
 .hero-bio .hl{color:var(--accent);font-weight:600}
 
 /* portrait */
-.portrait{position:relative;width:212px;height:262px;cursor:pointer;flex-shrink:0;user-select:none;z-index:2}
+.portrait{position:relative;width:212px;height:262px;margin-bottom:2.2rem;cursor:pointer;flex-shrink:0;user-select:none;z-index:2}
 .portrait .frame{position:absolute;inset:0;border-radius:4px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));background:var(--bg2);box-shadow:0 0 0 1px rgba(52,197,255,.12),0 14px 40px rgba(0,0,0,.5),0 0 26px rgba(52,197,255,.2);overflow:hidden;display:flex;align-items:center;justify-content:center;transition:transform .35s ease;transform:rotate(-2deg)}
 .portrait .frame img{width:100%;height:100%;object-fit:cover;display:block}
 .portrait .ph{font-family:var(--display);font-weight:600;width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#06081A;font-size:3.4rem}
-.portrait .cap{position:absolute;left:0;right:0;bottom:-1.7rem;text-align:center;font-family:var(--hand);font-weight:500;font-size:.82rem;color:var(--muted)}
+.portrait .cap{position:absolute;left:0;right:0;top:100%;margin-top:.6rem;text-align:center;font-family:var(--hand);font-weight:500;font-size:.82rem;color:var(--muted)}
 .portrait .hint{position:absolute;top:-1.5rem;right:.1rem;font-family:var(--hand);font-size:.78rem;color:var(--accent);opacity:.85;transform:rotate(-3deg);text-shadow:var(--glow-c)}
 .portrait:hover .frame{transform:rotate(1deg)}
 .portrait:active .frame{transform:rotate(2deg) scale(.99)}
@@ -238,8 +238,8 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
   <section class="hero">
     <div class="hero-text">
       <h1 class="hero-name">Micah<br><em>Hees</em></h1>
-      <p class="hero-sub">UW&ndash;Madison <span class="star">&#10022;</span> AI safety <span class="star">&#10022;</span> animal welfare <span class="star">&#10022;</span> community organizing</p>
-      <p class="hero-bio">A <span class="hl">chill dude who cares a lot about AI safety, animal welfare, and U.S. politics.</span> Grew up in Middleton, just outside Madison, Wisconsin. Extroverted, non-technical, and curious about where that combination is useful. I&rsquo;m at UW&ndash;Madison studying econ, currently spending the summer in Berkeley doing AI safety work and job-hunting in the space. Outside of that: climbing, running, and reading more than is probably sustainable.</p>
+      <p class="hero-sub">UW&ndash;Madison &middot; AI safety &middot; animal welfare &middot; community organizing</p>
+      <p class="hero-bio">A <span class="hl">chill dude who cares a lot about AI safety, animal welfare, and U.S. politics.</span> Grew up in Middleton, just outside Madison, Wisconsin. Extroverted, non-technical, and curious. Currently spending the summer in Berkeley doing AI safety work. Outside of that: climbing, running, and reading more than is probably sustainable.</p>
       <div class="cta-row">
         <a class="btn primary" href="https://calendly.com/micahhees" target="_blank" rel="noopener">Book a chat</a>
         <a class="btn" href="mailto:micahhees@gmail.com">Email</a>
@@ -329,9 +329,8 @@ var PORTRAITS=[
   {img:'images/portraits/micah-climbing.jpg', cap:'Sending a new route'},
   {img:'images/portraits/micah-alligator.jpg', cap:'Making a new friend'},
   {img:'images/trips/New York/canvassing.jpg', cap:'Volunteering for Bores'},
-  {img:'images/portraits/micah-campus-sunset.jpg', cap:'Golden hour on campus'},
-  {img:'images/portraits/micah-deca-conference.jpg', cap:'DECA conference'},
-  {img:'images/portraits/micah-childhood-mustache.jpg', cap:'Some things don’t change'}
+  {img:'images/portraits/micah-lambeau-sunset.jpg', cap:'Golden hour at Lambeau Field'},
+  {img:'images/portraits/micah-career-fair.jpg', cap:'Career fair'}
 ];
 var pIdx=0;
 function renderPortrait(){
