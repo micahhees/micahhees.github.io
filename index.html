@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Shantell+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Micah Hees","url":"https://micahhees.com","affiliation":{"@type":"CollegeOrUniversity","name":"University of Wisconsin–Madison"},"knowsAbout":["AI safety","Animal welfare","Community organizing"],"sameAs":["https://www.linkedin.com/in/micahhees","https://substack.com/@micahhees"]}
 </script>
@@ -33,19 +33,19 @@
 :root{
   /* Neon constellation (default) */
   --bg:#06081A; --bg2:#0E1230; --ink:#ECEBFA; --muted:#9AA2CE;
-  --accent:#34C5FF; --accent2:#FF45A8; --accent3:#A874FF;
+  --accent:#34C5FF; --accent2:#6FB8E8; --accent3:#9FC7EC;
   --star:#C9D2FF; --line:rgba(236,235,250,.13);
   --glow-c:0 0 6px rgba(52,197,255,.55),0 0 16px rgba(52,197,255,.28);
-  --glow-p:0 0 6px rgba(255,69,168,.55),0 0 16px rgba(255,69,168,.28);
+  --glow-p:0 0 6px rgba(111,184,232,.5),0 0 16px rgba(111,184,232,.25);
   --maxw:880px;
   --display:'Fraunces',Georgia,serif;
   --body:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
-  --hand:'Shantell Sans','Comic Sans MS',cursive;
+  --hand:'Space Mono',ui-monospace,monospace;
   --sky:radial-gradient(120% 90% at 50% -10%,#10163E 0%,#0A0E28 45%,#06081A 100%);
 }
 html[data-theme="day"]{
   --bg:#F1EFF7; --bg2:#FBFAFF; --ink:#15173A; --muted:#555C86;
-  --accent:#5B45D6; --accent2:#C8267E; --accent3:#7A52C8;
+  --accent:#5B45D6; --accent2:#2D6CC7; --accent3:#4C7FD1;
   --star:#5B63B0; --line:rgba(21,23,58,.14);
   --glow-c:none; --glow-p:none;
   --sky:radial-gradient(120% 90% at 50% -10%,#FFFFFF 0%,#F1EFF7 60%,#E7E3F3 100%);
@@ -107,7 +107,7 @@ a.link:hover{color:var(--accent);filter:drop-shadow(0 0 4px rgba(52,197,255,.6))
 .hero-sub{font-family:var(--hand);font-weight:500;font-size:.95rem;color:var(--muted);margin:.8rem 0 1.2rem}
 .hero-sub .star{color:var(--accent3)}
 .hero-bio{font-size:1.18rem;max-width:44ch}
-.hero-bio .hl{color:var(--ink);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='8'%3E%3Cpath d='M0 4 Q 10 1 20 4 T 40 4 T 60 4 T 80 4' fill='none' stroke='%23FF45A8' stroke-width='2.2'/%3E%3C/svg%3E");background-size:auto 8px;background-repeat:repeat-x;background-position:0 100%;padding-bottom:3px}
+.hero-bio .hl{color:var(--accent);font-weight:600}
 
 /* portrait */
 .portrait{position:relative;width:212px;height:262px;cursor:pointer;flex-shrink:0;user-select:none;z-index:2}
@@ -236,35 +236,6 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
 <main>
 <div class="wrap">
   <section class="hero">
-    <!-- original hippogriff constellation (hand-drawn star-line art) -->
-    <svg class="hero-constellation" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#34C5FF"/><stop offset="0.55" stop-color="#A874FF"/><stop offset="1" stop-color="#FF45A8"/>
-        </linearGradient>
-        <filter id="hglow" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <g filter="url(#hglow)" stroke="url(#hg)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="38,150 72,138 108,162 140,180 185,168 255,170 298,182 315,176 372,150"/>
-        <polyline points="72,138 88,116 104,126"/>
-        <polyline points="150,205 210,222 290,205"/>
-        <line x1="140" y1="180" x2="150" y2="205"/><line x1="298" y1="182" x2="290" y2="205"/>
-        <polyline points="148,200 140,243 134,282"/><polyline points="172,205 172,282"/>
-        <polyline points="288,205 286,282"/><polyline points="318,205 320,282"/>
-        <polyline points="185,168 205,120 238,82 282,58"/>
-        <polyline points="205,120 252,106"/><polyline points="230,96 270,84"/>
-      </g>
-      <g fill="#EAF4FF" filter="url(#hglow)">
-        <circle cx="38" cy="150" r="2.6"/><circle cx="72" cy="138" r="3"/><circle cx="108" cy="162" r="2.6"/><circle cx="140" cy="180" r="3"/>
-        <circle cx="185" cy="168" r="3.2"/><circle cx="255" cy="170" r="2.6"/><circle cx="298" cy="182" r="3"/><circle cx="372" cy="150" r="2.8"/>
-        <circle cx="104" cy="126" r="2.2"/><circle cx="210" cy="222" r="2.4"/><circle cx="134" cy="282" r="2.4"/><circle cx="172" cy="282" r="2.4"/>
-        <circle cx="286" cy="282" r="2.4"/><circle cx="320" cy="282" r="2.4"/><circle cx="238" cy="82" r="2.6"/><circle cx="282" cy="58" r="3"/>
-        <circle cx="252" cy="106" r="2.2"/><circle cx="270" cy="84" r="2.2"/>
-      </g>
-    </svg>
-
     <div class="hero-text">
       <h1 class="hero-name">Micah<br><em>Hees</em></h1>
       <p class="hero-sub">UW&ndash;Madison <span class="star">&#10022;</span> AI safety <span class="star">&#10022;</span> animal welfare <span class="star">&#10022;</span> community organizing</p>
@@ -284,11 +255,6 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
       <span class="cap" id="pcap"></span>
     </div>
   </section>
-
-  <svg class="skyline" viewBox="0 0 1000 64" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 60 L0 40 L40 40 L40 22 L80 22 L80 46 L120 46 L120 30 L150 30 L150 12 L190 12 L190 38 L230 38 L230 26 L270 26 L270 48 L300 48 L300 18 L330 18 L330 34 L380 34 L380 8 L410 8 L410 44 L450 44 L450 28 L500 28 L500 50 L540 50 L540 20 L580 20 L580 40 L620 40 L620 14 L660 14 L660 42 L700 42 L700 26 L740 26 L740 50 L780 50 L780 16 L820 16 L820 38 L860 38 L860 30 L900 30 L900 46 L940 46 L940 22 L980 22 L980 40 L1000 40 L1000 60 Z"/>
-    <circle class="lit" cx="62" cy="30" r="1.8"/><circle class="lit" cx="168" cy="20" r="1.8"/><circle class="lit" cx="392" cy="16" r="1.8"/><circle class="lit" cx="558" cy="28" r="1.8"/><circle class="lit" cx="678" cy="22" r="1.8"/><circle class="lit" cx="838" cy="24" r="1.8"/>
-  </svg>
 
   <section class="block">
     <p class="eyebrow">Right now</p>
@@ -360,13 +326,18 @@ document.addEventListener('click',function(e){
 /* ---- tap-to-flip portrait (home only) ---- */
 var PORTRAITS=[
   {img:'images/trips/Vietnam/portrait-2.jpg', cap:'Cycling tour in Ho Chi Minh City'},
-  {img:'images/portraits/micah-alligator.jpg', cap:'Making a new friend'}
+  {img:'images/portraits/micah-climbing.jpg', cap:'Sending a new route'},
+  {img:'images/portraits/micah-alligator.jpg', cap:'Making a new friend'},
+  {img:'images/trips/New York/canvassing.jpg', cap:'Canvassing for Alex Bores'},
+  {img:'images/portraits/micah-campus-sunset.jpg', cap:'Golden hour on campus'},
+  {img:'images/portraits/micah-deca-conference.jpg', cap:'DECA conference'},
+  {img:'images/portraits/micah-childhood-mustache.jpg', cap:'Some things don’t change'}
 ];
 var pIdx=0;
 function renderPortrait(){
   var f=document.getElementById('pframe'); var cap=document.getElementById('pcap');
   if(!f)return; var p=PORTRAITS[pIdx];
-  f.innerHTML=p.img?('<img src="'+p.img+'" alt="Micah Hees">'):('<div class="ph" style="background:linear-gradient(140deg,#34C5FF,#FF45A8)">MH</div>');
+  f.innerHTML=p.img?('<img src="'+p.img+'" alt="Micah Hees">'):('<div class="ph" style="background:linear-gradient(140deg,#34C5FF,#6FB8E8)">MH</div>');
   if(cap)cap.textContent=p.cap;
 }
 (function(){var el=document.getElementById('portrait');if(!el)return;renderPortrait();
