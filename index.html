@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Shantell+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Micah Hees","url":"https://micahhees.com","affiliation":{"@type":"CollegeOrUniversity","name":"University of Wisconsin–Madison"},"knowsAbout":["AI safety","Effective altruism","Community organizing"],"sameAs":["https://www.linkedin.com/in/micahhees","https://substack.com/@micahhees","https://boxd.it/lPW27"]}
+{"@context":"https://schema.org","@type":"Person","name":"Micah Hees","url":"https://micahhees.com","affiliation":{"@type":"CollegeOrUniversity","name":"University of Wisconsin–Madison"},"knowsAbout":["AI safety","Effective altruism","Community organizing"],"sameAs":["https://www.linkedin.com/in/micahhees","https://substack.com/@micahhees"]}
 </script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -222,9 +222,8 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
     <nav class="menu">
       <a href="index.html" class="active">Home</a>
       <a href="now.html">Now</a>
-      <a href="story.html">Story</a>
+      <a href="story.html">My Story</a>
       <a href="travel.html">Travel</a>
-      <a href="about.html">About</a>
       <a class="ext" href="https://substack.com/@micahhees" target="_blank" rel="noopener">Writing</a>
       <a class="ext" href="https://www.admonymous.co/micahhees" target="_blank" rel="noopener">Feedback</a>
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme">Theme</button>
@@ -272,8 +271,7 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
         <a class="btn" href="mailto:micahhees@gmail.com">Email</a>
         <a class="btn" href="https://substack.com/@micahhees" target="_blank" rel="noopener">Substack</a>
         <a class="btn" href="https://www.admonymous.co/micahhees" target="_blank" rel="noopener">Feedback</a>
-        <a class="btn" href="files/micah-hees-ea-resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute; (EA)</a>
-        <a class="btn" href="files/micah-hees-business-resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute; (Business)</a>
+        <a class="btn" href="career.html">Career stuff</a>
       </div>
     </div>
 
@@ -306,8 +304,6 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
     <ul class="note-list">
       <li><b>Climbing</b> &mdash; V3&ndash;V4, five or six sessions in and making it a habit.</li>
       <li><b>Running</b> &mdash; most days, no real plan, just going.</li>
-      <li><b>Film photography</b> &mdash; still learning.</li>
-      <li><b>Coffee shops</b> &mdash; always looking for the next one.</li>
     </ul>
     <div class="callout" style="margin-top:1.6rem">
       <h3>Currently recommending</h3>
@@ -318,7 +314,7 @@ footer.site a:hover{color:var(--accent);border-color:var(--accent)}
 </div>
 </main>
 <footer class="site">
-  <div class="wrap">Micah Hees &middot; <a href="mailto:micahhees@gmail.com">micahhees@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/micahhees" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://substack.com/@micahhees" target="_blank" rel="noopener">Substack</a> &middot; <a href="https://www.instagram.com/micah_hees/" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://boxd.it/lPW27" target="_blank" rel="noopener">Letterboxd</a></div>
+  <div class="wrap">Micah Hees &middot; <a href="mailto:micahhees@gmail.com">micahhees@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/micahhees" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://substack.com/@micahhees" target="_blank" rel="noopener">Substack</a> &middot; <a href="https://www.instagram.com/micah_hees/" target="_blank" rel="noopener">Instagram</a></div>
 </footer>
 <script>
 /* ---- theme switcher (Neon / Daylight) ---- */
@@ -360,8 +356,7 @@ document.addEventListener('click',function(e){
 })();
 /* ---- tap-to-flip portrait (home only) ---- */
 var PORTRAITS=[
-  {img:'images/portrait-1.jpg', cap:'Beach day in Hua Hin, Thailand'},
-  {img:'images/portrait-2.jpg', cap:'Cycling tour in Ho Chi Minh City'}
+  {img:'images/trips/Vietnam/portrait-2.jpg', cap:'Cycling tour in Ho Chi Minh City'}
 ];
 var pIdx=0;
 function renderPortrait(){
