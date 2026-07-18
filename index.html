@@ -85,10 +85,9 @@ a.link:hover{text-decoration-color:var(--ink)}
 
 /* photo hero: huge photo + CTAs */
 .photo-hero{display:flex;gap:2.2rem;align-items:center;flex-wrap:wrap;padding:2.4rem 0 2rem}
-.intro-photo-big{width:340px;height:340px;max-width:100%;border-radius:22px;overflow:hidden;border:1px solid var(--line);cursor:pointer;flex-shrink:0}
+.intro-photo-big{width:340px;height:340px;max-width:100%;border-radius:22px;overflow:hidden;border:1px solid var(--line);flex-shrink:0}
 .intro-photo-big img{width:100%;height:100%;object-fit:cover;display:block}
 .photo-hero-side{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:1.1rem}
-.photo-cap{font-size:.85rem;color:var(--muted)}
 @media(max-width:640px){.intro-photo-big{width:100%;height:auto;aspect-ratio:1}}
 
 .bio-p{font-size:1.05rem;max-width:60ch;color:var(--ink)}
@@ -204,11 +203,10 @@ footer.site a{color:var(--muted);text-decoration:none}
 <main>
 <div class="wrap">
   <section class="photo-hero reveal">
-    <div class="intro-photo-big" id="portrait" title="Tap for more photos">
-      <img id="pimg" src="images/portraits/micah-suit.jpg" alt="Micah Hees">
+    <div class="intro-photo-big">
+      <img src="images/portraits/micah-suit.jpg" alt="Micah Hees" fetchpriority="high" decoding="async">
     </div>
     <div class="photo-hero-side">
-      <p class="photo-cap" id="pcap">Tap for more photos</p>
       <div class="cta-row">
         <a class="btn primary" href="https://calendly.com/micahhees" target="_blank" rel="noopener">Book a chat</a>
         <a class="btn" href="mailto:micahhees@gmail.com">Email</a>
@@ -295,24 +293,6 @@ document.addEventListener('click',function(e){
   });
 })();
 
-var PORTRAITS=[
-  {img:'images/portraits/micah-suit.jpg', cap:'Tap for more photos'},
-  {img:'images/trips/Vietnam/portrait-2.jpg', cap:'Cycling tour in Ho Chi Minh City'},
-  {img:'images/portraits/micah-climbing.jpg', cap:'Sending a new route'},
-  {img:'images/portraits/micah-alligator.jpg', cap:'Making a new friend'},
-  {img:'images/trips/New York/canvassing.jpg', cap:'Volunteering for Bores'},
-  {img:'images/portraits/micah-lambeau-sunset.jpg', cap:'Golden hour at Lambeau Field'},
-  {img:'images/portraits/micah-career-fair.jpg', cap:'Career fair'}
-];
-var pIdx=0;
-function renderPortrait(){
-  var img=document.getElementById('pimg'); var cap=document.getElementById('pcap');
-  if(!img)return; var p=PORTRAITS[pIdx];
-  img.src=p.img;
-  if(cap)cap.textContent=p.cap;
-}
-(function(){var el=document.getElementById('portrait');if(!el)return;
-  el.addEventListener('click',function(){pIdx=(pIdx+1)%PORTRAITS.length;renderPortrait();});})();
 </script>
 </body>
 </html>
