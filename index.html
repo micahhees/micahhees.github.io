@@ -66,6 +66,33 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5.6vw,4.4re
 .hint{position:absolute;right:0;bottom:0;text-align:right;pointer-events:none}
 #readout{display:block;font-family:var(--sans);font-size:.9rem;color:var(--ink);margin-top:.4rem;min-height:1.4em;max-width:26ch;margin-left:auto}
 
+/* creed */
+.creed{position:relative;border-bottom:1px solid var(--line);padding:6rem 0 6.5rem;overflow:hidden}
+.creed .intro-l{margin-bottom:3.2rem;display:flex;align-items:center;gap:.9rem}
+.creed .intro-l::before{content:"";width:28px;height:1px;background:var(--muted)}
+.rail{position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--line)}
+.rail i{position:absolute;left:0;top:0;width:2px;height:0;background:var(--ink);transition:height .15s linear}
+.feat{display:grid;grid-template-columns:7rem minmax(0,1.25fr) minmax(0,1fr);gap:2rem;align-items:baseline;padding:2.1rem 0;border-top:1px solid var(--line)}
+.feat:last-of-type{border-bottom:1px solid var(--line)}
+.feat .yr{font-family:var(--display);font-size:.62rem;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.feat .stat{font-family:var(--display);font-size:clamp(2rem,6.2vw,4.8rem);line-height:1;letter-spacing:.02em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px var(--ink);transition:color 1.2s ease}
+.feat.in .stat{color:var(--ink)}
+.feat .stat small{font-size:.32em;letter-spacing:.2em;margin-left:.4em;-webkit-text-stroke:0;color:var(--muted)}
+.feat p{font-size:1.08rem;font-weight:300;color:var(--muted);max-width:32ch;line-height:1.5}
+.feat p b{font-weight:500;color:var(--ink)}
+.feat{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.feat.in{opacity:1;transform:none}
+.frontier{margin-top:5rem;opacity:0;transform:translateY(24px);transition:opacity 1.1s ease,transform 1.1s ease}
+.frontier.in{opacity:1;transform:none}
+.frontier .yr{font-family:var(--display);font-size:.62rem;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.frontier h2{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,4.4vw,3.4rem);line-height:1.18;letter-spacing:.03em;text-transform:uppercase;margin-top:1.2rem;max-width:20ch}
+.frontier p{font-size:1.15rem;font-weight:300;color:var(--muted);margin-top:1.4rem}
+@media(prefers-reduced-motion:reduce){.feat,.frontier{opacity:1;transform:none;transition:none}.feat .stat{color:var(--ink)}}
+@media(max-width:760px){
+  .feat{grid-template-columns:1fr;gap:.6rem;padding:1.7rem 0}
+  .creed{padding:4rem 0 4.5rem}
+}
+
 /* nodes grid */
 .head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:4.5rem 0 1.6rem;flex-wrap:wrap}
 .head h2{font-family:var(--display);font-weight:400;font-size:clamp(1.1rem,2.4vw,1.5rem);letter-spacing:.06em;text-transform:uppercase}
@@ -143,6 +170,22 @@ footer a:hover{color:var(--ink)}
     <div class="hint"><span class="label">Hover a node</span><span id="readout"></span></div>
   </div>
 </div></div>
+
+<section class="creed" aria-label="Why">
+  <div class="wrap" style="position:relative">
+    <div class="label intro-l">Why I do this</div>
+    <div class="feat"><span class="yr">1953</span><div class="stat"><span data-count="8849" data-fmt="int">8,849</span><small>M</small></div><p><b>Hillary and Norgay</b> stand on the roof of the world.</p></div>
+    <div class="feat"><span class="yr">1969</span><div class="stat"><span data-count="384400" data-fmt="int">384,400</span><small>KM</small></div><p><b>Apollo 11</b> crosses to the Moon and brings its crew home.</p></div>
+    <div class="feat"><span class="yr">1775 &ndash; Now</span><div class="stat">MILLIONS</div><p><b>Americans have served</b> to defend this country and the freedoms the rest of us live by.</p></div>
+    <div class="feat"><span class="yr">2026</span><div class="stat">1:59:30</div><p><b>Sabastian Sawe</b> runs the first marathon under two hours in a race.</p></div>
+    <div class="frontier">
+      <span class="yr">Now</span>
+      <h2>Every generation gets a frontier. Ours is making sure advanced AI goes well for all of humanity.</h2>
+      <p>That&rsquo;s the one I&rsquo;ve chosen.</p>
+    </div>
+  </div>
+  <div class="rail"><i id="railFill"></i></div>
+</section>
 
 <main class="wrap">
   <div class="head" id="nodes"><h2>The network so far</h2><span class="label">06 nodes &middot; Madison &rarr; Berkeley &rarr; New York</span></div>
@@ -288,6 +331,22 @@ document.getElementById('themeBtn').addEventListener('click',function(){
   c.addEventListener('click',function(){if(hover&&hover.k===1){var el=document.querySelector('.node[data-node="'+hover.id+'"]');if(el)el.scrollIntoView({behavior:'smooth',block:'center'})}});
   size();addEventListener('resize',function(){size();if(still)frame(0)});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){requestAnimationFrame(frame)});else requestAnimationFrame(frame);
+})();
+
+/* creed reveal + count-up */
+(function(){
+  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=[].slice.call(document.querySelectorAll('.feat,.frontier'));
+  function count(el){var to=+el.getAttribute('data-count'),t0=null,d=1600;
+    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/d),e=1-Math.pow(1-p,3);el.textContent=Math.round(to*e).toLocaleString('en-US');if(p<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step)}
+  if(still||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');
+    var c=e.target.querySelector('[data-count]');if(c)count(c);io.unobserve(e.target)}})},{threshold:.35});
+  els.forEach(function(e){io.observe(e)});
+  var sec=document.querySelector('.creed'),fill=document.getElementById('railFill');
+  function rail(){var r=sec.getBoundingClientRect(),p=(innerHeight*.6-r.top)/r.height;fill.style.height=(Math.max(0,Math.min(1,p))*100)+'%'}
+  addEventListener('scroll',rail,{passive:true});rail();
 })();
 </script>
 </body>
