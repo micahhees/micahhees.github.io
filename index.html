@@ -52,19 +52,17 @@ a{color:inherit}
 .theme-btn:hover{color:var(--ink);border-color:var(--ink)}
 .theme-btn svg{width:14px;height:14px}
 
-/* hero: the map */
-.hero{border-bottom:1px solid var(--line);padding:5.2rem 0 2.6rem}
+/* hero */
+.hero{border-bottom:1px solid var(--line);padding:7rem 0 4.5rem}
 .hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5rem;align-items:center}
-.map-box{position:relative;height:min(64vh,520px);min-height:380px}
-#map{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
+.portrait{justify-self:end;width:100%;max-width:400px}
+.portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;border:1px solid var(--line)}
 h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5.6vw,4.4rem);line-height:1.02;letter-spacing:.04em;text-transform:uppercase;margin-top:1rem}
 .statement{font-size:clamp(1.05rem,1.8vw,1.3rem);font-weight:300;max-width:30ch;margin-top:1.3rem;line-height:1.45}
 .links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.9rem}
 .btn{font-family:var(--display);font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.1rem;border:1px solid var(--line);background:var(--bg);transition:border-color .2s,background .2s,color .2s}
 .btn:hover{border-color:var(--ink)}
 .btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.hint{position:absolute;right:0;bottom:0;text-align:right;pointer-events:none}
-#readout{display:block;font-family:var(--sans);font-size:.9rem;color:var(--ink);margin-top:.4rem;min-height:1.4em;max-width:26ch;margin-left:auto}
 
 /* creed */
 .creed{position:relative;border-bottom:1px solid var(--line);padding:6rem 0 6.5rem;overflow:hidden}
@@ -106,7 +104,7 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5.6vw,4.4re
 .node:hover .label,.node:hover p,.node.lit .label,.node.lit p{color:var(--bg);opacity:.75}
 
 /* about strip */
-.about{display:grid;grid-template-columns:260px 1fr;gap:3rem;padding:5rem 0;border-bottom:1px solid var(--line);align-items:center}
+.about{padding:5rem 0;border-bottom:1px solid var(--line)}
 .about img{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 22%;display:block;border:1px solid var(--line)}
 .about .big{font-size:clamp(1.25rem,2.6vw,1.75rem);font-weight:300;line-height:1.4;max-width:34ch}
 .about .small{color:var(--muted);margin-top:1.2rem;max-width:56ch}
@@ -131,8 +129,7 @@ footer a:hover{color:var(--ink)}
   .topnav{gap:1rem}.topnav a{letter-spacing:.14em}
   .hero{padding:0 0 2.6rem}
   .hero-in{grid-template-columns:1fr;min-height:0;gap:1rem}
-  .map-box{order:-1;height:44vh;min-height:300px}
-  .hint{display:none}
+  .portrait{order:-1;justify-self:start;max-width:260px}
   .grid,.strip{grid-template-columns:1fr}
   .node{min-height:0}
   .about{grid-template-columns:1fr;gap:1.6rem;padding:3.5rem 0}
@@ -165,10 +162,7 @@ footer a:hover{color:var(--ink)}
       <a class="btn" href="https://substack.com/@micahhees" target="_blank" rel="noopener">Substack</a>
     </div>
   </div>
-  <div class="map-box">
-    <canvas id="map" aria-label="A network map connecting Micah to the organizations, people and ideas he works with"></canvas>
-    
-  </div>
+  <div class="portrait"><img src="images/portraits/micah-suit.jpg" alt="Micah Hees" fetchpriority="high" decoding="async"></div>
 </div></div>
 
 <section class="creed" aria-label="Why">
@@ -188,7 +182,7 @@ footer a:hover{color:var(--ink)}
 </section>
 
 <main class="wrap">
-  <div class="head" id="nodes"><h2>The network so far</h2></div>
+  <div class="head" id="nodes"><h2>Work</h2></div>
   <div class="grid">
     <div class="node" data-node="waisi"><div class="top"><span class="label">Fall 2026 &ndash; Now</span></div>
       <h3>Wisconsin AI Safety Initiative</h3><div class="role">Operations, policy &amp; fellowships</div>
@@ -211,7 +205,6 @@ footer a:hover{color:var(--ink)}
   </div>
 
   <section class="about" id="about">
-    <img src="images/portraits/micah-suit.jpg" alt="Micah Hees" loading="lazy" decoding="async">
     <div>
       <p class="big">The transition to advanced AI goes better when more thoughtful people are working on it. I do my best to find them and connect them with each other.</p>
       <p class="small">I work mostly on the people side of AI safety: fieldbuilding, communications, and policy. I grew up in Middleton, just outside Madison. When I&rsquo;m not working on these projects, I enjoy running, weightlifting, going out to eat with friends, cooking and baking, and karaoke.</p>
@@ -248,90 +241,6 @@ document.getElementById('themeBtn').addEventListener('click',function(){
   var cur=document.documentElement.getAttribute('data-theme')||'neon';
   applyTheme(THEMES[(THEMES.indexOf(cur)+1)%THEMES.length]);
 });
-
-/* connector map */
-(function(){
-  var c=document.getElementById('map'),x=c.getContext('2d'),dpr=Math.min(devicePixelRatio||1,2),W,H;
-  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var readout=document.getElementById('readout');
-  // kind: 0 = me, 1 = org, 2 = people, 3 = hub (shared theme)
-  var N=[
-    {id:'me',t:'Micah',k:0,fx:.46,fy:.44},
-    {id:'uw',t:'UW–Madison',k:1,d:'B.A. Economics, 2027',fx:.28,fy:.24},
-    {id:'waisi',t:'WAISI',k:1,d:'Operations, policy team & fellowship facilitator, Fall 2026 – now',fx:.56,fy:.16},
-    {id:'bores',t:'Bores ’26',k:1,d:'Canvasser & poll-site lead, New York',fx:.90,fy:.22},
-    {id:'aha',t:'AHA Wisconsin',k:1,d:'State Chair, 2025 – 2026',fx:.58,fy:.82},
-    {id:'bridge',t:'Bridge Madison',k:1,d:'VP of University Relations',fx:.86,fy:.66},
-    {id:'berkeley',t:'Berkeley',k:1,d:'6+ weeks around AI safety people, Summer 2026',fx:.30,fy:.78},
-    {id:'policy',t:'Policy',k:3,d:'Where it all overlaps: AHA lobbying, the WAISI policy team, the Bores campaign, and Bridge Madison',fx:.72,fy:.48},
-    {id:'aisafety',t:'AI safety',k:3,d:'The why behind it: WAISI, Berkeley, and a pro-AI-safety candidate',fx:.44,fy:.70},
-    {id:'students',t:'students',k:2,fx:.26,fy:.56},
-    {id:'fellows',t:'fellowships',k:2,fx:.40,fy:.08},
-    {id:'legis',t:'legislators',k:2,fx:.80,fy:.90},
-    {id:'organizers',t:'organizers',k:2,fx:.80,fy:.11}
-  ];
-  var E=[['me','waisi'],['me','bores'],['me','berkeley'],['me','bridge'],['me','aha'],['me','uw'],
-    ['policy','waisi'],['policy','bores'],['policy','aha'],['policy','bridge'],['policy','legis'],
-    ['aisafety','waisi'],['aisafety','berkeley'],['aisafety','bores'],
-    ['students','uw'],['students','waisi'],['students','bridge'],
-    ['fellows','waisi'],['fellows','uw'],
-    ['legis','aha'],['legis','waisi'],
-    ['organizers','bores'],['organizers','aha'],['organizers','berkeley']];
-  var byId={};N.forEach(function(n){byId[n.id]=n;n.p=Math.random()*6.28;n.s=.3+Math.random()*.4});
-  E=E.map(function(e){return {a:byId[e[0]],b:byId[e[1]],born:0}});
-  var pulses=[],hover=null,mouse={x:-1e4,y:-1e4},t0=performance.now();
-  function size(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
-    var narrow=W<640;N.forEach(function(n){var fx=.03+(n.fx-.26)/.70*(narrow?.60:.74),fy=.04+(n.fy-.08)/.82*.86;n.bx=fx*W;n.by=fy*H})}
-  function col(a){return 'rgba('+(getComputedStyle(document.documentElement).getPropertyValue('--rgb').trim()||'255,255,255')+','+a+')'}
-  function pos(n,t){var amp=n.k===0?3:n.k===3?5:9;return {x:n.bx+Math.sin(t*.0004*n.s+n.p)*amp,y:n.by+Math.cos(t*.00035*n.s+n.p)*amp}}
-  function near(t){var best=null,bd=28;N.forEach(function(n){var q=pos(n,t),d=Math.hypot(q.x-mouse.x,q.y-mouse.y);if(d<bd){bd=d;best=n}});return best}
-  function frame(now){
-    var t=still?0:now-t0;x.clearRect(0,0,W,H);
-    var h=near(t);if(h!==hover){hover=h;setLit(h);}
-    var P={};N.forEach(function(n){P[n.id]=pos(n,t)});
-    // edges grow in on load
-    E.forEach(function(e,i){
-      var grow=still?1:Math.min(1,Math.max(0,(t-i*90)/900));if(grow<=0)return;
-      var a=P[e.a.id],b=P[e.b.id],on=hover&&(e.a===hover||e.b===hover);
-      var hub=e.a.k===3||e.b.k===3;x.strokeStyle=col(on?.85:(hub?.34:(e.a.k===0?.28:.14)));x.lineWidth=on?1.3:(hub?1.3:1);
-      x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+(b.x-a.x)*grow,a.y+(b.y-a.y)*grow);x.stroke();
-    });
-    // pulses
-    if(!still&&t>1800&&Math.random()<.05){var e=E[Math.floor(Math.random()*E.length)];pulses.push({e:e,u:0,r:Math.random()<.5})}
-    pulses=pulses.filter(function(p){p.u+=.008;if(p.u>1)return false;var a=P[p.e.a.id],b=P[p.e.b.id],u=p.r?1-p.u:p.u;
-      x.fillStyle=col(.9*Math.sin(Math.PI*p.u));x.fillRect(a.x+(b.x-a.x)*u-1.5,a.y+(b.y-a.y)*u-1.5,3,3);return true});
-    // nodes
-    N.forEach(function(n,i){
-      var q=P[n.id],vis=still?1:Math.min(1,Math.max(0,(t-i*60)/600));if(vis<=0)return;
-      var on=hover===n||(hover&&E.some(function(e){return (e.a===hover&&e.b===n)||(e.b===hover&&e.a===n)}));
-      var s=n.k===0?11:n.k===1?7:n.k===3?14:4;
-      x.globalAlpha=vis;
-      if(n.k===0){x.strokeStyle=col(.5);x.strokeRect(q.x-s-6,q.y-s-6,(s+6)*2,(s+6)*2);x.fillStyle=col(1);x.fillRect(q.x-s/2,q.y-s/2,s,s)}
-      else if(n.k===1){x.fillStyle=getComputedStyle(document.body).backgroundColor;x.fillRect(q.x-s,q.y-s,s*2,s*2);x.strokeStyle=col(on?1:.8);x.lineWidth=1;x.strokeRect(q.x-s,q.y-s,s*2,s*2);if(on){x.fillStyle=col(1);x.fillRect(q.x-s+3,q.y-s+3,s*2-6,s*2-6)}}
-      else if(n.k===3){var R=s+10+Math.sin(t*.0012+n.p)*2;x.setLineDash([2,4]);x.strokeStyle=col(on?.7:.35);x.beginPath();x.arc(q.x,q.y,R,0,6.283);x.stroke();x.setLineDash([]);
-        x.save();x.translate(q.x,q.y);x.rotate(Math.PI/4);x.fillStyle=getComputedStyle(document.body).backgroundColor;x.fillRect(-s*.7,-s*.7,s*1.4,s*1.4);x.strokeStyle=col(1);x.lineWidth=1.2;x.strokeRect(-s*.7,-s*.7,s*1.4,s*1.4);x.fillStyle=col(on?1:.85);x.fillRect(-s*.35,-s*.35,s*.7,s*.7);x.restore()}
-      else{x.fillStyle=col(on?1:.5);x.fillRect(q.x-s/2,q.y-s/2,s,s)}
-      x.font=(n.k===2?'400 13px Saira, sans-serif':n.k===3?'400 12px Michroma, sans-serif':'400 10px Michroma, sans-serif');
-      x.fillStyle=col(n.k===2?(on?.95:.45):(on||!hover?.95:.55));
-      var label=n.k===2?n.t:n.t.toUpperCase();
-      x.textBaseline='middle';x.textAlign='left';
-      x.fillText(label,q.x+s+(n.k===0?14:n.k===3?14:8),q.y);
-      x.globalAlpha=1;
-    });
-    if(!still)requestAnimationFrame(frame);
-  }
-  var cards=[].slice.call(document.querySelectorAll('.node[data-node]'));
-  function setLit(n){
-    cards.forEach(function(cd){cd.classList.toggle('lit',!!n&&cd.getAttribute('data-node')===n.id)});
-    if(readout)readout.textContent=n?(n.d||(n.k===2?n.t:'Madison, Wisconsin')):'';
-    c.style.cursor=n?'pointer':'crosshair';
-  }
-  c.addEventListener('mousemove',function(ev){var r=c.getBoundingClientRect();mouse.x=ev.clientX-r.left;mouse.y=ev.clientY-r.top;if(still)frame(0)});
-  c.addEventListener('mouseleave',function(){mouse.x=mouse.y=-1e4;if(still)frame(0)});
-  c.addEventListener('click',function(){if(hover&&hover.k===1){var el=document.querySelector('.node[data-node="'+hover.id+'"]');if(el)el.scrollIntoView({behavior:'smooth',block:'center'})}});
-  size();addEventListener('resize',function(){size();if(still)frame(0)});
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){requestAnimationFrame(frame)});else requestAnimationFrame(frame);
-})();
 
 /* creed reveal + count-up */
 (function(){
