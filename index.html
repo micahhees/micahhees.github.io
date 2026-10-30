@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Micah Hees &middot; AI safety &amp; community building</title>
-<meta name="description" content="Economics student at UW&ndash;Madison working on AI safety fieldbuilding, with roots in community organizing and policy advocacy.">
+<meta name="description" content="Economics student at UW&ndash;Madison working on AI safety community building with the Wisconsin AI Safety Initiative.">
 <link rel="canonical" href="https://micahhees.com/">
-<meta name="theme-color" content="#0A0A0A">
+<meta name="theme-color" content="#050505">
 <meta name="author" content="Micah Hees">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Micah Hees">
 <meta property="og:title" content="Micah Hees &middot; AI safety &amp; community building">
-<meta property="og:description" content="Economics student at UW&ndash;Madison working on AI safety fieldbuilding, with roots in community organizing and policy advocacy.">
+<meta property="og:description" content="Economics student at UW&ndash;Madison working on AI safety community building with the Wisconsin AI Safety Initiative.">
 <meta property="og:url" content="https://micahhees.com/">
 <meta property="og:image" content="https://micahhees.com/images/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Micah Hees &middot; AI safety &amp; community building">
-<meta name="twitter:description" content="Economics student at UW&ndash;Madison working on AI safety fieldbuilding, with roots in community organizing and policy advocacy.">
+<meta name="twitter:description" content="Economics student at UW&ndash;Madison working on AI safety community building with the Wisconsin AI Safety Initiative.">
 <meta name="twitter:image" content="https://micahhees.com/images/og.jpg">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -24,136 +24,171 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Micah Hees","url":"https://micahhees.com","affiliation":{"@type":"CollegeOrUniversity","name":"University of Wisconsin–Madison"},"knowsAbout":["AI safety","Community building"],"sameAs":["https://www.linkedin.com/in/micahhees","https://substack.com/@micahhees","https://www.instagram.com/micah_hees/","https://www.goodreads.com/micahhees"]}
 </script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0A0A0A; --ink:#EDEDED; --muted:#8C8C8C; --line:rgba(255,255,255,.14);
-  --maxw:640px;
-  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --bg:#050505; --ink:#F2F2F2; --muted:#8A8A8A; --dim:#4A4A4A; --line:rgba(255,255,255,.14); --star:255,255,255;
+  --display:'Michroma','Eurostile','Arial Black',sans-serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
 }
-html[data-theme="day"]{--bg:#FFFFFF; --ink:#111111; --muted:#6B6B6B; --line:rgba(0,0,0,.14)}
+html[data-theme="day"]{--bg:#FAFAFA; --ink:#0A0A0A; --muted:#666; --dim:#B5B5B5; --line:rgba(0,0,0,.14); --star:0,0,0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s;overflow-x:hidden}
 a{color:inherit}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.page{position:relative;z-index:1}
+.wrap{max-width:960px;margin:0 auto;padding:0 1.5rem}
+.label{font-family:var(--display);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
 
 /* nav */
-.topnav{display:flex;justify-content:center;align-items:center;gap:1.6rem;padding:1.6rem 1.25rem 0;font-size:.95rem;flex-wrap:wrap}
-.topnav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.mark{font-family:var(--display);font-size:.8rem;letter-spacing:.3em;text-decoration:none}
+.topnav{display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap}
+.topnav a{font-family:var(--display);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s}
 .topnav a:hover{color:var(--ink)}
-.theme-btn{position:absolute;top:1.3rem;right:1.25rem;width:32px;height:32px;background:transparent;border:1px solid var(--line);color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s}
+.theme-btn{width:30px;height:30px;background:transparent;border:1px solid var(--line);color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s}
 .theme-btn:hover{color:var(--ink);border-color:var(--ink)}
-.theme-btn svg{width:15px;height:15px}
+.theme-btn svg{width:14px;height:14px}
 
-/* header */
-.intro{text-align:center;padding:3.2rem 0 1rem}
-.portrait{width:128px;height:128px;margin:0 auto 1.4rem;border:1px solid var(--line);overflow:hidden}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
-h1{font-weight:500;font-size:2.1rem;letter-spacing:-.005em;line-height:1.15}
-.tagline{color:var(--muted);font-size:1.1rem;margin-top:.35rem}
-.links{display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem 1.3rem;margin-top:1.1rem;font-size:.98rem}
-.links a{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px;transition:text-decoration-color .2s}
-.links a:hover{text-decoration-color:var(--ink)}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 240px;gap:3rem;align-items:end;padding:6rem 0 4.5rem}
+.hero .label{margin-bottom:1.6rem;display:flex;gap:.9rem;align-items:center}
+.hero .label::before{content:"";width:28px;height:1px;background:var(--muted)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,7.4vw,4.9rem);line-height:1.02;letter-spacing:.04em;text-transform:uppercase}
+.statement{font-size:clamp(1.1rem,2.2vw,1.35rem);font-weight:300;line-height:1.5;max-width:30ch;margin-top:1.8rem}
+.links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem}
+.btn{font-family:var(--display);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.15rem;border:1px solid var(--line);transition:border-color .2s,background .2s,color .2s}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary:hover{opacity:.85}
+.frame{position:relative;padding:10px}
+.frame::before,.frame::after,.frame span::before,.frame span::after{content:"";position:absolute;width:14px;height:14px;border-color:var(--ink);border-style:solid}
+.frame::before{top:0;left:0;border-width:1px 0 0 1px}
+.frame::after{top:0;right:0;border-width:1px 1px 0 0}
+.frame span::before{bottom:0;left:0;border-width:0 0 1px 1px}
+.frame span::after{bottom:0;right:0;border-width:0 1px 1px 0}
+.frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;filter:grayscale(1) contrast(1.05)}
+.coords{margin-top:.8rem;text-align:center;font-size:.55rem}
 
 /* sections */
-section{padding:2.4rem 0 .4rem;scroll-margin-top:1rem}
-h2{font-weight:500;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:1.3rem}
-p + p{margin-top:1rem}
-.prose a{text-decoration:underline;text-decoration-color:var(--muted);text-underline-offset:3px}
-.prose a:hover{text-decoration-color:var(--ink)}
+section{display:grid;grid-template-columns:190px 1fr;gap:2rem;padding:3.6rem 0;border-top:1px solid var(--line);scroll-margin-top:1rem}
+.sec-head .num{font-family:var(--display);font-size:1.6rem;color:var(--dim);letter-spacing:.05em;display:block;margin-bottom:.5rem}
+.prose{max-width:60ch}
+.prose p + p{margin-top:1.1rem}
+.prose p{color:var(--ink)}
+.prose .muted{color:var(--muted)}
+.log{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:9.5rem 1fr;gap:1.4rem;padding:1.05rem 0;border-bottom:1px solid var(--line)}
+.row .when{font-family:var(--display);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-top:.35rem}
+.row .what{font-size:1.04rem;font-weight:500;line-height:1.35}
+.row .where{font-size:.93rem;color:var(--muted);margin-top:.15rem}
+.row a{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .3s}
+.row a:hover{background-size:100% 1px}
+.row a .arr{color:var(--muted);margin-left:.35rem}
 
-/* rows */
-.rows{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:8.5rem 1fr;gap:1.2rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
-.row .when{font-size:.85rem;color:var(--muted);padding-top:.25rem;font-variant-numeric:tabular-nums}
-.row .what{font-size:1.08rem;line-height:1.35}
-.row .where{font-size:.92rem;color:var(--muted);margin-top:.15rem}
-.row a{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
-.row a:hover{text-decoration-color:var(--ink)}
-.more{margin-top:1rem;font-size:.95rem}
-.more a{color:var(--muted);text-decoration:none}
-.more a:hover{color:var(--ink)}
-@media(max-width:560px){
-  body{font-size:17px}
-  .row{grid-template-columns:1fr;gap:.15rem}
-  .topnav{gap:1.1rem}
-  .theme-btn{position:static}
-}
-
-footer{margin-top:3.5rem;padding:1.6rem 0 2.4rem;border-top:1px solid var(--line);text-align:center;font-size:.88rem;color:var(--muted)}
-footer a{color:var(--muted);text-decoration:none;transition:color .2s}
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:2rem 0 2.8rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}
+footer nav{display:flex;gap:1.4rem;flex-wrap:wrap}
+footer a{font-size:.88rem;color:var(--muted);text-decoration:none;transition:color .2s}
 footer a:hover{color:var(--ink)}
-footer .sep{margin:0 .5rem;opacity:.5}
 
-.reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr;padding:3.5rem 0 3rem;gap:2.4rem}
+  .hero > div:last-child{order:-1;max-width:200px}
+  .bar{flex-direction:column;align-items:flex-start;gap:.9rem}
+  .topnav a{letter-spacing:.16em}
+  section{grid-template-columns:1fr;gap:1.2rem;padding:2.8rem 0}
+  .sec-head .num{display:inline;margin:0 .8rem 0 0;font-size:1.1rem}
+  .row{grid-template-columns:1fr;gap:.2rem}
+  .topnav{gap:1rem}
+}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
-<nav class="topnav" aria-label="Primary">
-  <a href="#about">About</a>
-  <a href="#work">Work</a>
-  <a href="#writing">Writing</a>
-  <a href="story.html">Story</a>
-  <a href="career/Micah_Hees_Resume.pdf" target="_blank" rel="noopener">CV</a>
-  <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-</nav>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="page">
+<header class="wrap">
+  <div class="bar">
+    <a class="mark" href="index.html">MH</a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="#mission">Mission</a>
+      <a href="#log">Log</a>
+      <a href="#writing">Writing</a>
+      <a href="story.html">Story</a>
+      <a href="career/Micah_Hees_Resume.pdf" target="_blank" rel="noopener">CV</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
 
 <main class="wrap">
-  <header class="intro">
-    <div class="portrait"><img src="images/portraits/micah-suit.jpg" alt="Micah Hees" fetchpriority="high" decoding="async"></div>
-    <h1>Micah Hees</h1>
-    <p class="tagline">Building the people side of AI safety.</p>
-    <div class="links">
-      <a href="mailto:micahhees@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/micahhees" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://substack.com/@micahhees" target="_blank" rel="noopener">Substack</a>
-      <a href="https://calendly.com/micahhees" target="_blank" rel="noopener">Book a chat</a>
-      <a href="career/Micah_Hees_Resume.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+  <div class="hero">
+    <div>
+      <div class="label">AI safety &middot; Community building</div>
+      <h1>Micah<br>Hees</h1>
+      <p class="statement">Helping humanity reach further, and live better when it gets there, by making sure advanced AI goes well.</p>
+      <div class="links">
+        <a class="btn primary" href="https://calendly.com/micahhees" target="_blank" rel="noopener">Book a chat</a>
+        <a class="btn" href="mailto:micahhees@gmail.com">Email</a>
+        <a class="btn" href="https://www.linkedin.com/in/micahhees" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://substack.com/@micahhees" target="_blank" rel="noopener">Substack</a>
+      </div>
     </div>
-  </header>
+    <div>
+      <div class="frame"><span></span><img src="images/portraits/micah-suit.jpg" alt="Micah Hees" fetchpriority="high" decoding="async"></div>
+      <div class="label coords">43.07&deg; N &middot; 89.40&deg; W</div>
+    </div>
+  </div>
 
-  <section id="about" class="prose">
-    <h2>About</h2>
-    <p>I study economics at UW&ndash;Madison and work on AI safety fieldbuilding: helping more people, especially non-technical people, find their way into work on making AI go well. I&rsquo;m Growth Coordinator and a fellowship facilitator for Effective Altruism UW&ndash;Madison, where I started a summer intro fellowship for incoming students and am working to grow the chapter into a reliable on-ramp to the field. This summer I spent time around Constellation in Berkeley, meeting people in AI safety and helping with whatever projects they had in mind.</p>
-    <p>Most of my background is in organizing and advocacy. In June I canvassed 10+ hours a day for three weeks for Alex Bores in one of the most expensive House primaries on record, and led a poll site on Election Day. Before that I served as Wisconsin State Chair for American Heart Association advocates, lobbying state legislators, and I&rsquo;m VP of University Relations at Bridge Madison, which hosts conversations across the political spectrum.</p>
-    <p>I&rsquo;m at my best as a connector: getting to know people well and pointing them toward the people and opportunities that fit. Outside of that, I climb, run, and read.</p>
+  <section id="mission">
+    <div class="sec-head"><span class="num">01</span><span class="label">Mission</span></div>
+    <div class="prose">
+      <p>I study economics at UW&ndash;Madison and work on AI safety community building. The transition to advanced AI goes better when more thoughtful people are working on it, technical and not, so I spend my time bringing them in.</p>
+      <p>At the Wisconsin AI Safety Initiative I&rsquo;m on the policy team, help build and facilitate our AI Safety Fellowship, and lead recruiting. My roots are in organizing: canvassing in New York, lobbying Wisconsin legislators, and getting people across the political spectrum into the same room.</p>
+      <p class="muted">Off the clock: climbing, running, reading.</p>
+    </div>
   </section>
 
-  <section id="work">
-    <h2>Work</h2>
-    <div class="rows">
-      <div class="row"><div class="when">Dec 2025 &ndash; now</div><div><div class="what">Growth Coordinator &amp; Fellowship Facilitator</div><div class="where">Effective Altruism UW&ndash;Madison</div></div></div>
-      <div class="row"><div class="when">Dec 2025 &ndash; now</div><div><div class="what">Vice President of University Relations</div><div class="where">Bridge Madison</div></div></div>
-      <div class="row"><div class="when">Jun 2026</div><div><div class="what">Volunteer Canvasser &amp; Poll-Site Lead</div><div class="where">Alex Bores for Congress, New York</div></div></div>
-      <div class="row"><div class="when">Feb &ndash; Apr 2026</div><div><div class="what">Team Lead, Sustainability Consulting</div><div class="where">Ethical and Responsible Business Leaders &middot; client: Flad Architects</div></div></div>
-      <div class="row"><div class="when">Jan 2025 &ndash; Jan 2026</div><div><div class="what">State Chair</div><div class="where">American Heart Association, Wisconsin advocates</div></div></div>
-      <div class="row"><div class="when">2025 &ndash; 2027</div><div><div class="what">B.A. in Economics</div><div class="where">University of Wisconsin&ndash;Madison</div></div></div>
+  <section id="log">
+    <div class="sec-head"><span class="num">02</span><span class="label">Log</span></div>
+    <div class="log">
+      <div class="row"><div class="when">Fall 2026 &ndash; Now</div><div><div class="what">Policy Team &amp; Fellowship Organizer</div><div class="where">Wisconsin AI Safety Initiative</div></div></div>
+      <div class="row"><div class="when">Dec 2025 &ndash; Now</div><div><div class="what">VP of University Relations</div><div class="where">Bridge Madison</div></div></div>
+      <div class="row"><div class="when">Jun 2026</div><div><div class="what">Canvasser &amp; Poll-Site Lead</div><div class="where">Alex Bores for Congress &middot; New York</div></div></div>
+      <div class="row"><div class="when">2025 &ndash; 2026</div><div><div class="what">State Chair</div><div class="where">American Heart Association &middot; Wisconsin advocates</div></div></div>
+      <div class="row"><div class="when">2025 &ndash; 2027</div><div><div class="what">B.A. Economics</div><div class="where">University of Wisconsin&ndash;Madison</div></div></div>
     </div>
-    <p class="more"><a href="career/Micah_Hees_Resume.pdf" target="_blank" rel="noopener">Full CV &rarr;</a></p>
   </section>
 
   <section id="writing">
-    <h2>Writing &amp; more</h2>
-    <div class="rows">
-      <div class="row"><div class="when">Substack</div><div><div class="what"><a href="https://substack.com/@micahhees" target="_blank" rel="noopener">Micah Hees on Substack</a></div><div class="where">Notes on AI safety, organizing, and what I&rsquo;m learning</div></div></div>
-      <div class="row"><div class="when">Story</div><div><div class="what"><a href="story.html">The longer story</a></div><div class="where">Growing up in Middleton, finding AI safety, and how I got here</div></div></div>
-      <div class="row"><div class="when">Now</div><div><div class="what"><a href="now.html">What I&rsquo;m up to</a></div><div class="where">Recent updates from Berkeley and New York</div></div></div>
-      <div class="row"><div class="when">Travel</div><div><div class="what"><a href="travel.html">Places I&rsquo;ve been</a></div><div class="where">Six countries and what I took away from each</div></div></div>
+    <div class="sec-head"><span class="num">03</span><span class="label">Writing</span></div>
+    <div class="log">
+      <div class="row"><div class="when">Jul 2026</div><div><div class="what"><a href="https://mh11111.substack.com/p/a-beginners-guide-to-ai-timelines" target="_blank" rel="noopener">A Beginner&rsquo;s Guide to AI Timelines<span class="arr">&nearr;</span></a></div><div class="where">Substack</div></div></div>
+      <div class="row"><div class="when">More</div><div><div class="what"><a href="story.html">The longer story<span class="arr">&rarr;</span></a></div><div class="where">Where I come from and how I got here</div></div></div>
+      <div class="row"><div class="when">Field notes</div><div><div class="what"><a href="travel.html">Places I&rsquo;ve been<span class="arr">&rarr;</span></a></div><div class="where">Six countries and what I took from each</div></div></div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <a href="mailto:micahhees@gmail.com">micahhees@gmail.com</a><span class="sep">&middot;</span><a href="https://www.instagram.com/micah_hees/" target="_blank" rel="noopener">Instagram</a><span class="sep">&middot;</span><a href="https://www.goodreads.com/micahhees" target="_blank" rel="noopener">Goodreads</a><span class="sep">&middot;</span><a href="https://www.admonymous.co/micahhees" target="_blank" rel="noopener">Anonymous feedback</a>
+    <span class="label">Madison, Wisconsin</span>
+    <nav>
+      <a href="mailto:micahhees@gmail.com">micahhees@gmail.com</a>
+      <a href="https://www.instagram.com/micah_hees/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.goodreads.com/micahhees" target="_blank" rel="noopener">Goodreads</a>
+      <a href="https://www.admonymous.co/micahhees" target="_blank" rel="noopener">Anonymous feedback</a>
+    </nav>
   </div>
 </footer>
+</div>
 <script>
 var THEMES=['neon','day'];
 function mhGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
@@ -164,8 +199,22 @@ document.getElementById('themeBtn').addEventListener('click',function(){
   var cur=document.documentElement.getAttribute('data-theme')||'neon';
   applyTheme(THEMES[(THEMES.indexOf(cur)+1)%THEMES.length]);
 });
+/* starfield */
 (function(){
-  var els=[].slice.call(document.querySelectorAll('section'));
+  var c=document.getElementById('stars'),x=c.getContext('2d'),stars=[],w,h,dpr=Math.min(window.devicePixelRatio||1,2);
+  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){w=innerWidth;h=innerHeight;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.round(w*h/5200);stars=[];for(var i=0;i<n;i++)stars.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()<.92?Math.random()*.8+.25:Math.random()*1.2+.9,a:Math.random()*.6+.15,p:Math.random()*6.28,s:Math.random()*.6+.2,v:Math.random()*.05+.01});}
+  function draw(t){var rgb=getComputedStyle(document.documentElement).getPropertyValue('--star').trim()||'255,255,255';
+    x.clearRect(0,0,w,h);
+    for(var i=0;i<stars.length;i++){var s=stars[i];var a=still?s.a:s.a*(.65+.35*Math.sin(t/1000*s.s+s.p));
+      if(!still){s.y-=s.v;if(s.y<0)s.y=h;}
+      x.fillStyle='rgba('+rgb+','+a.toFixed(3)+')';x.beginPath();x.arc(s.x,s.y,s.r,0,6.283);x.fill();}
+    if(!still)requestAnimationFrame(draw);}
+  size();addEventListener('resize',size);requestAnimationFrame(draw);
+})();
+(function(){
+  var els=[].slice.call(document.querySelectorAll('section,.hero'));
   if(!('IntersectionObserver' in window))return;
   els.forEach(function(el){el.classList.add('reveal')});
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
