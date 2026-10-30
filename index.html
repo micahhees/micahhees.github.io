@@ -77,7 +77,7 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5.6vw,4.4re
 .feat .yr{font-family:var(--display);font-size:.62rem;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
 .feat .stat{font-family:var(--display);font-size:clamp(1.9rem,4.4vw,3.8rem);line-height:1;letter-spacing:.02em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px var(--ink);transition:color 1.2s ease}
 .feat.in .stat{color:var(--ink)}
-.feat .stat small{font-size:.32em;letter-spacing:.2em;margin-left:.4em;-webkit-text-stroke:0;color:var(--muted)}
+.feat .stat small{font-size:.32em;letter-spacing:.2em;margin-left:.6em;text-transform:uppercase;-webkit-text-stroke:0;color:var(--muted)}
 .feat p{font-size:1.08rem;font-weight:300;color:var(--muted);max-width:32ch;line-height:1.5}
 .feat p b{font-weight:500;color:var(--ink)}
 .feat{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
@@ -173,11 +173,12 @@ footer a:hover{color:var(--ink)}
 
 <section class="creed" aria-label="Why">
   <div class="wrap" style="position:relative">
-    <div class="label intro-l">What each generation&rsquo;s frontier took</div>
-    <div class="feat"><span class="yr">1941 &ndash; 1945</span><div class="stat"><span data-count="16000000">16,000,000</span></div><p><b>Americans served</b> in uniform to win the Second World War.</p></div>
-    <div class="feat"><span class="yr">1954</span><div class="stat"><span data-count="1800000">1,800,000</span></div><p><b>Children volunteered</b> as Polio Pioneers to test the vaccine that ended America&rsquo;s polio epidemics.</p></div>
-    <div class="feat"><span class="yr">1963</span><div class="stat"><span data-count="250000">250,000</span></div><p><b>People marched</b> on Washington for jobs and freedom.</p></div>
-    <div class="feat"><span class="yr">1969</span><div class="stat"><span data-count="400000">400,000</span></div><p><b>People built Apollo</b> and put the first humans on the Moon.</p></div>
+    <div class="label intro-l">Every generation&rsquo;s defining challenge</div>
+    <div class="feat"><span class="yr">1865</span><div class="stat"><span data-count="4">4</span><small>Million</small></div><p><b>Enslaved people freed</b> when the Thirteenth Amendment abolished slavery.</p></div>
+    <div class="feat"><span class="yr">1920</span><div class="stat"><span data-count="72">72</span><small>Years</small></div><p><b>Of organizing</b>, from Seneca Falls to the Nineteenth Amendment, to win women the vote.</p></div>
+    <div class="feat"><span class="yr">1944</span><div class="stat"><span data-count="37">37</span>%<small>of GDP</small></div><p><b>Poured into winning</b> the Second World War.</p></div>
+    <div class="feat"><span class="yr">1966</span><div class="stat"><span data-count="4.4" data-dec="1">4.4</span>%<small>of the budget</small></div><p><b>Of all federal spending</b> went to NASA at Apollo&rsquo;s peak, to put humans on the Moon.</p></div>
+    <div class="feat"><span class="yr">2003</span><div class="stat"><span data-count="3">3</span><small>Billion</small></div><p><b>Letters of human DNA</b> mapped by the Human Genome Project.</p></div>
     <div class="frontier">
       <span class="yr">Now</span>
       <h2>Our generation&rsquo;s greatest challenge will be making AI go well.</h2>
@@ -337,7 +338,7 @@ document.getElementById('themeBtn').addEventListener('click',function(){
   var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var els=[].slice.call(document.querySelectorAll('.feat,.frontier'));
   function count(el){var to=+el.getAttribute('data-count'),t0=null,d=1600;
-    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/d),e=1-Math.pow(1-p,3);el.textContent=Math.round(to*e).toLocaleString('en-US');if(p<1)requestAnimationFrame(step)}
+    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/d),e=1-Math.pow(1-p,3);var dec=+(el.getAttribute('data-dec')||0);el.textContent=(to*e).toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec});if(p<1)requestAnimationFrame(step)}
     requestAnimationFrame(step)}
   if(still||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');
