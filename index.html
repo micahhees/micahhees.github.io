@@ -167,7 +167,7 @@ footer a:hover{color:var(--ink)}
   </div>
   <div class="map-box">
     <canvas id="map" aria-label="A network map connecting Micah to the organizations, people and ideas he works with"></canvas>
-    <div class="hint"><span class="label">Hover a node</span><span id="readout"></span></div>
+    
   </div>
 </div></div>
 
@@ -267,7 +267,7 @@ document.getElementById('themeBtn').addEventListener('click',function(){
     {id:'students',t:'students',k:2,fx:.26,fy:.56},
     {id:'fellows',t:'fellowships',k:2,fx:.40,fy:.08},
     {id:'legis',t:'legislators',k:2,fx:.80,fy:.90},
-    {id:'organizers',t:'organizers',k:2,fx:.80,fy:.06}
+    {id:'organizers',t:'organizers',k:2,fx:.80,fy:.11}
   ];
   var E=[['me','waisi'],['me','bores'],['me','berkeley'],['me','bridge'],['me','aha'],['me','uw'],
     ['policy','waisi'],['policy','bores'],['policy','aha'],['policy','bridge'],['policy','legis'],
@@ -322,7 +322,7 @@ document.getElementById('themeBtn').addEventListener('click',function(){
   var cards=[].slice.call(document.querySelectorAll('.node[data-node]'));
   function setLit(n){
     cards.forEach(function(cd){cd.classList.toggle('lit',!!n&&cd.getAttribute('data-node')===n.id)});
-    readout.textContent=n?(n.d||(n.k===2?n.t:'Madison, Wisconsin')):'';
+    if(readout)readout.textContent=n?(n.d||(n.k===2?n.t:'Madison, Wisconsin')):'';
     c.style.cursor=n?'pointer':'crosshair';
   }
   c.addEventListener('mousemove',function(ev){var r=c.getBoundingClientRect();mouse.x=ev.clientX-r.left;mouse.y=ev.clientY-r.top;if(still)frame(0)});
