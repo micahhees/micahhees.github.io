@@ -98,7 +98,7 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5.6vw,4.4re
 .head h2{font-family:var(--display);font-weight:400;font-size:clamp(1.1rem,2.4vw,1.5rem);letter-spacing:.06em;text-transform:uppercase}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .node{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.5rem 1.4rem 1.7rem;min-height:220px;display:flex;flex-direction:column;transition:background .25s,color .25s}
-.node .top{display:flex;justify-content:space-between;margin-bottom:2.2rem}
+.node .top{display:flex;margin-bottom:1.4rem}
 .node h3{font-family:var(--display);font-weight:400;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.4}
 .node .role{font-weight:500;font-size:.95rem;margin-top:.35rem}
 .node p{color:var(--muted);font-size:.92rem;margin-top:.6rem;line-height:1.5}
@@ -180,32 +180,31 @@ footer a:hover{color:var(--ink)}
     <div class="feat"><span class="yr">1969</span><div class="stat"><span data-count="400000">400,000</span></div><p><b>People built Apollo</b> and put the first humans on the Moon.</p></div>
     <div class="frontier">
       <span class="yr">Now</span>
-      <h2>Every generation gets a frontier. Ours is making sure advanced AI goes well for all of humanity.</h2>
-      <p>It will take a lot of us. I&rsquo;m here to help bring them in.</p>
+      <h2>Our generation&rsquo;s greatest challenge will be making AI go well.</h2>
     </div>
   </div>
   <div class="rail"><i id="railFill"></i></div>
 </section>
 
 <main class="wrap">
-  <div class="head" id="nodes"><h2>The network so far</h2><span class="label">06 nodes &middot; Madison &rarr; Berkeley &rarr; New York</span></div>
+  <div class="head" id="nodes"><h2>The network so far</h2></div>
   <div class="grid">
-    <div class="node" data-node="waisi"><div class="top"><span class="label">Node 01</span><span class="label">Fall 2026 &ndash; Now</span></div>
+    <div class="node" data-node="waisi"><div class="top"><span class="label">Fall 2026 &ndash; Now</span></div>
       <h3>Wisconsin AI Safety Initiative</h3><div class="role">Operations, policy &amp; fellowships</div>
       <p>Running operations, facilitating a technical and a policy fellowship cohort, helping write the curriculum for both, and leading student outreach to help students upskill faster.</p></div>
-    <div class="node" data-node="bores"><div class="top"><span class="label">Node 02</span><span class="label">Jun 2026</span></div>
+    <div class="node" data-node="bores"><div class="top"><span class="label">Jun 2026</span></div>
       <h3>Alex Bores for Congress</h3><div class="role">Canvasser &amp; poll-site lead</div>
       <p>200+ hours handing out fliers in New York for a pro-AI-safety candidate, then ran a poll site for 16 hours on Election Day.</p></div>
-    <div class="node" data-node="berkeley"><div class="top"><span class="label">Node 03</span><span class="label">Summer 2026</span></div>
+    <div class="node" data-node="berkeley"><div class="top"><span class="label">Summer 2026</span></div>
       <h3>Berkeley</h3><div class="role">Upskilling in the field</div>
       <p>Spent 6+ weeks in Berkeley this past summer around AI safety professionals and university organizers, reading and writing as much as possible.</p></div>
-    <div class="node" data-node="bridge"><div class="top"><span class="label">Node 04</span><span class="label">Dec 2025 &ndash; Now</span></div>
+    <div class="node" data-node="bridge"><div class="top"><span class="label">Dec 2025 &ndash; Now</span></div>
       <h3>Bridge Madison</h3><div class="role">VP of University Relations</div>
       <p>Getting students across the political spectrum into the same room to talk through contested political questions.</p></div>
-    <div class="node" data-node="aha"><div class="top"><span class="label">Node 05</span><span class="label">2023 &ndash; 2026</span></div>
+    <div class="node" data-node="aha"><div class="top"><span class="label">2023 &ndash; 2026</span></div>
       <h3>American Heart Association</h3><div class="role">Wisconsin State Chair</div>
       <p>Led advocacy meetings, coached new volunteers, and lobbied state legislators and the Governor&rsquo;s office.</p></div>
-    <div class="node" data-node="uw"><div class="top"><span class="label">Node 06</span><span class="label">2025 &ndash; 2027</span></div>
+    <div class="node" data-node="uw"><div class="top"><span class="label">2025 &ndash; 2027</span></div>
       <h3>UW&ndash;Madison</h3><div class="role">B.A. Economics</div>
       <p>Home base. Switched from accounting to move through school faster and spend more time on making AI go well.</p></div>
   </div>
@@ -228,7 +227,7 @@ footer a:hover{color:var(--ink)}
 
 <footer>
   <div class="wrap">
-    <span class="label">Madison, Wisconsin &middot; 43.07&deg; N</span>
+    <span class="label">Madison, Wisconsin</span>
     <nav>
       <a href="mailto:micahhees@gmail.com">micahhees@gmail.com</a>
       <a href="https://x.com/micahhees" target="_blank" rel="noopener">X / Twitter</a>
