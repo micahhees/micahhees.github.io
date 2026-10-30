@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Saira:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -124,39 +124,34 @@ footer.site a{color:var(--muted);text-decoration:none}
   .menu{gap:.1rem}.nav{gap:.6rem}
 }
 
-/* 2026 refresh v2: Michroma + Inter, square, mission-control */
-:root{--bg:#050505;--bg2:#0E0E0E;--ink:#F2F2F2;--muted:#8A8A8A;--line:rgba(255,255,255,.14);--maxw:960px;--sans:'Saira',system-ui,sans-serif;--display:'Michroma','Eurostile',sans-serif}
-html[data-theme="day"]{--bg:#FAFAFA;--bg2:#F0F0F0;--ink:#0A0A0A;--muted:#666;--line:rgba(0,0,0,.14)}
-body{font-family:var(--sans);font-size:17px}
+/* 2026 refresh v3: professional, light */
+:root,html[data-theme]{--bg:#FFFFFF;--bg2:#F5F5F5;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E4E4E4;--maxw:1040px;--sans:'Source Sans 3',Helvetica,Arial,sans-serif;--head:'Montserrat',Helvetica,Arial,sans-serif}
+body{font-family:var(--sans);font-size:18px;background:var(--bg);color:var(--ink)}
 *,*::before,*::after{border-radius:0!important}
-h1,h2,h3{font-weight:500!important}
-.page-title,.hero-name,.countries{font-family:var(--display);font-weight:400!important;text-transform:uppercase;letter-spacing:.04em}
-.page-title{font-size:clamp(1.8rem,5vw,2.8rem)}
-section.block > h2{font-family:var(--display);font-weight:400!important;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
-.eyebrow,.idx-k,.tl-date,.update .when,.card .card-label,.place .txt .yr{font-family:var(--display);font-weight:400;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase}
+h1,h2,h3,.page-title,.hero-name,.countries,.trip-title{font-family:var(--head);font-weight:600!important;letter-spacing:0;text-transform:none}
+.page-title{font-size:clamp(1.8rem,4.5vw,2.5rem)}
+section.block > h2{font-family:var(--head);font-weight:700!important;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.eyebrow,.idx-k,.tl-date,.update .when,.card .card-label,.place .txt .yr{font-family:var(--head);font-weight:600;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
 .wrap{max-width:var(--maxw)}
-.mh-head{position:relative;z-index:5}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.mark{font-family:var(--display);font-size:.8rem;letter-spacing:.3em;text-decoration:none;color:var(--ink)}
-.topnav{display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap}
-.topnav a{font-family:var(--display);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s}
-.topnav a:hover,.topnav a.active{color:var(--ink)}
-.theme-btn{width:30px;height:30px;margin:0}
-@media(max-width:760px){.bar{flex-direction:column;align-items:flex-start;gap:.9rem}.topnav{gap:1rem}.topnav a{letter-spacing:.16em}}
+.site-head{background:#111;color:#fff;text-align:center;padding:1.7rem 1.5rem 1.2rem}
+.site-head .name{font-family:var(--head);font-weight:700;font-size:1.45rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;color:#fff;text-decoration:none}
+.site-head nav{display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem 1.9rem;margin-top:1rem}
+.site-head nav a{font-family:var(--head);font-weight:600;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:#CFCFCF;text-decoration:none;padding-bottom:.25rem;border-bottom:2px solid transparent}
+.site-head nav a:hover{color:#fff}
+.site-head nav a.active{color:#fff;border-bottom-color:#fff}
 </style>
 </head>
 <body>
-<header class="wrap mh-head"><div class="bar">
-  <a class="mark" href="index.html">MH</a>
-  <nav class="topnav" aria-label="Primary">
-    <a href="index.html#nodes">Work</a>
-    <a href="index.html#about">About</a>
+<header class="site-head">
+  <a class="name" href="index.html">Micah Hees</a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="index.html#work">Work</a>
     <a href="index.html#writing">Writing</a>
     <a href="story.html">Story</a>
     <a href="career/Micah_Hees_Resume.pdf" target="_blank" rel="noopener">CV</a>
-    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
   </nav>
-</div></header>
+</header>
 <main>
 <div class="wrap">
   <div class="page-head reveal">
