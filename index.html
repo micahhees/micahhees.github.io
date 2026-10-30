@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Saira:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Micah Hees","url":"https://micahhees.com","affiliation":{"@type":"CollegeOrUniversity","name":"University of Wisconsin–Madison"},"knowsAbout":["AI safety","Community building"],"sameAs":["https://www.linkedin.com/in/micahhees","https://substack.com/@micahhees","https://www.instagram.com/micah_hees/","https://www.goodreads.com/micahhees"]}
 </script>
@@ -33,7 +33,7 @@
 :root{
   --bg:#050505; --ink:#F2F2F2; --muted:#8A8A8A; --dim:#3A3A3A; --line:rgba(255,255,255,.14); --rgb:255,255,255;
   --display:'Michroma','Eurostile',sans-serif;
-  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --sans:'Saira',system-ui,-apple-system,sans-serif;
 }
 html[data-theme="day"]{--bg:#FAFAFA; --ink:#0A0A0A; --muted:#666; --dim:#C8C8C8; --line:rgba(0,0,0,.14); --rgb:0,0,0}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s;overflow-x:hidden}
@@ -264,7 +264,7 @@ document.getElementById('themeBtn').addEventListener('click',function(){
       if(n.k===0){x.strokeStyle=col(.5);x.strokeRect(q.x-s-6,q.y-s-6,(s+6)*2,(s+6)*2);x.fillStyle=col(1);x.fillRect(q.x-s/2,q.y-s/2,s,s)}
       else if(n.k===1){x.fillStyle=getComputedStyle(document.body).backgroundColor;x.fillRect(q.x-s,q.y-s,s*2,s*2);x.strokeStyle=col(on?1:.8);x.lineWidth=1;x.strokeRect(q.x-s,q.y-s,s*2,s*2);if(on){x.fillStyle=col(1);x.fillRect(q.x-s+3,q.y-s+3,s*2-6,s*2-6)}}
       else{x.fillStyle=col(on?1:.5);x.fillRect(q.x-s/2,q.y-s/2,s,s)}
-      x.font=(n.k===2?'400 12px Inter, sans-serif':'400 10px Michroma, sans-serif');
+      x.font=(n.k===2?'400 13px Saira, sans-serif':'400 10px Michroma, sans-serif');
       x.fillStyle=col(n.k===2?(on?.95:.45):(on||!hover?.95:.55));
       var label=n.k===2?n.t:n.t.toUpperCase();
       x.textBaseline='middle';x.textAlign='left';
